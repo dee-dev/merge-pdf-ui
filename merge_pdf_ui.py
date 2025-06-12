@@ -34,8 +34,6 @@ with st.expander("📌 Panduan Format & Pengambilan ID"):
        1A2B3C4D5E6F7G8H
        ```
 
-st.divider()
-
 # --- FORM UTAMA
 with st.form("merge_form"):
     st.subheader("📄 Masukkan Data")
