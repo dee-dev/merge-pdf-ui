@@ -7,7 +7,7 @@ st.set_page_config(
 )
 
 # ========== SIDEBAR ==========
-st.sidebar.title("📚 Navigasi")
+st.sidebar.title("Navigasi")
 page = st.sidebar.radio("Pilih halaman:", ["📎 Gabung PDF", "🕘 Riwayat", "ℹ️ Tentang"])
 
 # ========== HEADER ==========
@@ -21,8 +21,8 @@ st.markdown("""
 st.divider()
 
 # ========== HALAMAN: GABUNG PDF ==========
-if page == "📎 Gabung PDF":
-    st.subheader("🧾 Metode 1: Gunakan Google Spreadsheet")
+if page == "📎 Merge PDF":
+    st.subheader(" Metode 1: Gunakan Google Spreadsheet")
     
     col1, col2 = st.columns(2)
     with st.form("merge_form"):
@@ -56,7 +56,7 @@ if page == "📎 Gabung PDF":
                 st.balloons()
 
     st.divider()
-    st.subheader("📥 Metode 2: Upload File PDF Langsung")
+    st.subheader(" Metode 2: Upload File PDF Langsung")
 
     uploaded_files = st.file_uploader(
         "Tarik & lepas beberapa file PDF di sini",
@@ -75,11 +75,6 @@ if page == "📎 Gabung PDF":
                     st.markdown(f"- {name}")
                 st.success("✅ File berhasil digabung! (simulasi)")
                 st.balloons()
-
-# ========== HALAMAN: RIWAYAT ==========
-elif page == "🕘 Riwayat":
-    st.subheader("🕘 Riwayat Penggabungan PDF")
-    st.info("Fitur ini akan menampilkan riwayat merge PDF yang sudah dilakukan. (masih dalam pengembangan)")
 
 # ========== HALAMAN: TENTANG ==========
 elif page == "ℹ️ Tentang":
