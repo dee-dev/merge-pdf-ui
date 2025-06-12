@@ -1,99 +1,35 @@
 import streamlit as st
 
+# Konfigurasi halaman
 st.set_page_config(
     page_title="Merge PDF",
     page_icon="📎",
     layout="centered"
 )
 
-# ========== SIDEBAR ==========
-st.sidebar.title("Navigasi")
-page = st.sidebar.radio("Pilih halaman:", ["📎 Gabung PDF", "🕘 Riwayat", "ℹ️ Tentang"])
-
-# ========== HEADER ==========
-st.markdown("""
-    <div style='text-align: center;'>
-        <h1 style='color: #4CAF50;'>📎 Gabung PDF Otomatis</h1>
-        <p style='font-size: 16px; color: gray;'>Gabungkan file PDF dari Spreadsheet atau unggah langsung ke sistem</p>
-    </div>
-""", unsafe_allow_html=True)
-
+# Header
+st.markdown("<h1 style='text-align: center; color: #4CAF50;'>📎 Merge PDF Otomatis</h1>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; font-size: 16px;'>Ambil link PDF dari Google Sheets & upload ke Google Drive</p>", unsafe_allow_html=True)
 st.divider()
 
-# ========== HALAMAN: GABUNG PDF ==========
-if page == "📎 Merge PDF":
-    st.subheader(" Metode 1: Gunakan Google Spreadsheet")
-    
-    col1, col2 = st.columns(2)
-    with st.form("merge_form"):
-        with col1:
-            sheet_url = st.text_input("🔗 URL Spreadsheet", placeholder="https://docs.google.com/spreadsheets/...")
-        with col2:
-            folder_id = st.text_input("📁 ID Folder Google Drive", placeholder="1A2B3C4D...")
+# Input Form
+with st.form("merge_form"):
+    st.subheader("📄 Masukkan Data")
+    sheet_url = st.text_input("🔗 URL Google Spreadsheet (berisi link PDF)")
+    folder_id = st.text_input("📁 ID Folder Google Drive (tujuan hasil PDF)")
 
-        st.markdown("""
-            <style>
-            div.stButton > button:first-child {
-                background-color: #4CAF50;
-                color: white;
-                font-size: 16px;
-                padding: 0.5em 2em;
-                border-radius: 10px;
-                border: none;
-                margin-top: 1em;
-            }
-            </style>
-        """, unsafe_allow_html=True)
+    submitted = st.form_submit_button("Gabungkan & Upload")
 
-        submitted = st.form_submit_button("🚀 Gabungkan & Upload")
+# Aksi saat tombol ditekan
+if submitted:
+    if not sheet_url or not folder_id:
+        st.warning("⚠️ Mohon lengkapi semua input terlebih dahulu.")
+    else:
+        # Belum ada proses backend
+        st.success("✅ Proses berhasil dijalankan (simulasi UI saja).")
+        st.info("🔧 Fitur penggabungan PDF belum aktif.")
 
-    if submitted:
-        if not sheet_url or not folder_id:
-            st.warning("⚠️ Mohon isi semua kolom.")
-        else:
-            with st.spinner("🔄 Memproses..."):
-                st.success("✅ Simulasi berhasil! (fungsi backend belum dihubungkan)")
-                st.balloons()
-
-    st.divider()
-    st.subheader(" Metode 2: Upload File PDF Langsung")
-
-    uploaded_files = st.file_uploader(
-        "Tarik & lepas beberapa file PDF di sini",
-        type="pdf",
-        accept_multiple_files=True,
-        help="File akan digabung sesuai urutan unggah."
-    )
-
-    if uploaded_files:
-        st.success(f"✅ {len(uploaded_files)} file berhasil diunggah.")
-        if st.button("🚀 Gabungkan File PDF"):
-            with st.spinner("🔄 Menggabungkan file PDF..."):
-                file_names = [f.name for f in uploaded_files]
-                st.markdown("📄 <b>Daftar file:</b>", unsafe_allow_html=True)
-                for name in file_names:
-                    st.markdown(f"- {name}")
-                st.success("✅ File berhasil digabung! (simulasi)")
-                st.balloons()
-
-# ========== HALAMAN: TENTANG ==========
-elif page == "ℹ️ Tentang":
-    st.subheader("ℹ️ Tentang Aplikasi")
-    st.write("""
-    Aplikasi ini membantu Anda menggabungkan file PDF dari dua sumber:
-    
-    - Google Spreadsheet (berisi link PDF di Google Drive)
-    - Upload langsung dari komputer Anda
-
-    Dibuat dengan ❤️ oleh dee-dev.
-    """)
-
-# ========== FOOTER ==========
+# Footer
 st.divider()
-st.markdown(
-    "<p style='text-align: center; font-size: 13px; color: gray;'>"
-    "Dibuat oleh dee-dev | <strong>Versi UI: 1.0</strong> | © 2025"
-    "</p>",
-    unsafe_allow_html=True
-)
+st.caption("Dibuat dengan Streamlit | Versi 0.3 | © 2025")
 
