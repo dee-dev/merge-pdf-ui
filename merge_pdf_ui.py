@@ -34,7 +34,6 @@ with st.expander("📌 Panduan Format & Pengambilan ID"):
        1A2B3C4D5E6F7G8H
        ```
     """)
-    st.image("https://i.imgur.com/QBZniO2.png", caption="Contoh cara ambil ID Folder", use_column_width=True)
 
 st.divider()
 
