@@ -9,15 +9,15 @@ st.set_page_config(
 )
 
 # Header
-st.markdown("<h1 style='text-align: center; color: #4CAF50;'>📎 Merge PDF</h1>", unsafe_allow_html=True)
-st.markdown("<p style='text-align: center; font-size: 16px;'>Gabungkan Banyak PDF, dengan cepat & mudah</p>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; color: #4CAF50;'>📎 Merge PDF </h1>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; font-size: 16px;'>Gabungkan banyak PDF mudah & cepat</p>", unsafe_allow_html=True)
 st.divider()
 
 # --- TEMPLATE & PETUNJUK
 with st.expander("📌 Panduan Format & Pengambilan ID"):
     st.markdown("### 📄 Contoh Format Spreadsheet")
     st.markdown("Silakan gunakan template berikut agar program bisa membaca link PDF dengan benar:")
-    st.markdown("[📥 Download Template Spreadsheet (Google Sheets)](https://docs.google.com/spreadsheets/d/1kZ0OhYSGmmfTSXcF09jzioExeK9IKGnWhHlsqwDBKu8/edit?usp=sharing)", unsafe_allow_html=True)
+    st.markdown("[📥 Download Template Spreadsheet (Google Sheets)](https://docs.google.com/spreadsheets/d/1ABCDEF12345TEMPLATE/export?format=xlsx)", unsafe_allow_html=True)
     
     st.markdown("**Format Kolom:**")
     st.code("No | Nama File | Link PDF", language="text")
@@ -33,6 +33,10 @@ with st.expander("📌 Panduan Format & Pengambilan ID"):
        ```
        1A2B3C4D5E6F7G8H
        ```
+    """)
+    st.image("https://i.imgur.com/QBZniO2.png", caption="Contoh cara ambil ID Folder", use_column_width=True)
+
+st.divider()
 
 # --- FORM UTAMA
 with st.form("merge_form"):
@@ -67,4 +71,3 @@ if submitted:
 # Footer
 st.divider()
 st.caption("Dibuat dengan Streamlit | Versi 0.5 | © 2025")
-
