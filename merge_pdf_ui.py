@@ -9,8 +9,8 @@ st.set_page_config(
 )
 
 # Header
-st.markdown("<h1 style='text-align: center; color: #4CAF50;'>📎 Gabung PDF Otomatis</h1>", unsafe_allow_html=True)
-st.markdown("<p style='text-align: center; font-size: 16px;'>Ambil link PDF dari Google Sheets & upload ke Google Drive</p>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; color: #4CAF50;'>📎 Merge PDF</h1>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; font-size: 16px;'>Gabnngkan PDF dengan mudah & cepat secra otomatis</p>", unsafe_allow_html=True)
 st.divider()
 
 # Input Form
@@ -19,7 +19,7 @@ with st.form("merge_form"):
     sheet_url = st.text_input("🔗 URL Google Spreadsheet (berisi link PDF)")
     folder_id = st.text_input("📁 ID Folder Google Drive (tujuan hasil PDF)")
 
-    submitted = st.form_submit_button("🚀 Gabungkan & Upload")
+    submitted = st.form_submit_button("Gabungkan & Upload")
 
 # Aksi saat tombol ditekan
 if submitted:
