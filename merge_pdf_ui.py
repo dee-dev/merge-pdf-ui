@@ -2,7 +2,8 @@ import streamlit as st
 
 # Konfigurasi halaman
 st.set_page_config(
-    page_title="Gabung PDF Otomatis",
+    page_title="Merge PDF",
+    page_subtitle="gabungkan PDF dengan otomatis dan cepat"
     page_icon="📎",
     layout="centered"
 )
@@ -36,7 +37,7 @@ st.divider()
 # Footer / stempel versi
 st.markdown(
     "<p style='text-align: center; font-size: 13px; color: gray;'>"
-    "Dibuat dengan ❤️ oleh [dee-dev] | <strong>Versi UI: 0.4</strong> | © 2025"
+    "Dibuat dengan ❤️ oleh dee-dev | <strong>Versi UI: 0.4</strong> | © 2025"
     "</p>",
     unsafe_allow_html=True
 )
